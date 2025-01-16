@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 2.18
+      - 2.19
   workflow_dispatch:
     inputs:
       manual_deploy_branch:
