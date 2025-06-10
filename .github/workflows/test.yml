@@ -1,0 +1,24 @@
+name: Jekyll Production Publishing
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Load secret
+        uses: 1password/load-secrets-action@v2
+        with:
+          # Export loaded secrets as environment variables
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          TEST-SECRET-1-USERNAME: op://opensearch-infra-secrets/test-secret-1/username
+
+      - name: Print masked secret
+        run: 'echo "Secret: $TEST-SECRET-1-USERNAME"'
+
