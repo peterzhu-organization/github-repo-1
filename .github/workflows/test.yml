@@ -17,8 +17,8 @@ jobs:
           export-env: true
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          TEST-SECRET-1-USERNAME: op://opensearch-infra-secrets/test-secret-1/username
+          TEST_SECRET_1_USERNAME: op://opensearch-infra-secrets/test-secret-1/username
 
       - name: Print masked secret
-        run: 'echo "Secret: $TEST-SECRET-1-USERNAME"'
+        run: 'echo "Secret: $TEST_SECRET_1_USERNAME"'
 
